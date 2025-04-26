@@ -1,0 +1,47 @@
+{
+	"geode": "4.3.1",
+	"gd": {
+		"win": "2.2074",
+		"mac": "2.2074",
+		"android": "2.2074",
+		"ios": "2.2074"
+	},
+	"version": "v1.1.0",
+	"id": "ryder.autopractice",
+	"name": "Auto Practice",
+	"developer": "Ryder7223",
+	"description": "Enables practice mode when entering a level.",
+	"links": {
+		"source": "https://github.com/ryder7223/Auto-Practice"
+	},
+	"tags": ["utility"],
+	"settings": {
+		"enable-auto-practice": {
+			"name": "Enable Auto Practice",
+			"description": "Toggles auto-practice when starting a level.",
+			"type": "bool",
+			"default": true
+		},
+		"show-notification": {
+			"name": "Show Notification",
+			"description": "Whether to show a popup notification when auto-practice is activated.",
+			"type": "bool",
+			"default": false,
+			"enable-if": "enable-auto-practice"
+		},
+		"enable-in-testmode": {
+			"name": "Enable in Test Mode",
+			"description": "Auto practice will activate when starting a level in test mode.",
+			"type": "bool",
+			"default": false,
+			"enable-if": "enable-auto-practice"
+		},
+		"enable-in-platformer": {
+			"name": "Enable in Platformer Mode",
+			"description": "Auto practice will activate when starting a level in platformer mode.",
+			"type": "bool",
+			"default": false,
+			"enable-if": "enable-auto-practice"
+		}
+	}
+}
