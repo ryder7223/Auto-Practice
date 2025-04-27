@@ -1,4 +1,4 @@
-# Auto Enable Practice Mode
+# Auto Practice
 
 This mod will automatically enable Practice Mode.
 
