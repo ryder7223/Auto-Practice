@@ -1,9 +1,10 @@
 {
 	"geode": "4.3.1",
 	"gd": {
-		"win": "2.2074"
+		"win": "2.2074",
+		"android": "2.2074"
 	},
-	"version": "v1.0.0",
+	"version": "v1.1.2",
 	"id": "ryder7223.autopractice",
 	"name": "Auto Practice",
 	"developer": "Ryder7223",
@@ -19,13 +20,6 @@
 			"type": "bool",
 			"default": true
 		},
-		"show-notification": {
-			"name": "Show Notification",
-			"description": "Whether to show a popup notification when auto-practice is activated.",
-			"type": "bool",
-			"default": false,
-			"enable-if": "enable-auto-practice"
-		},
 		"enable-in-testmode": {
 			"name": "Enable in Test Mode",
 			"description": "Auto practice will activate when starting a level in test mode.",
@@ -39,6 +33,12 @@
 			"type": "bool",
 			"default": false,
 			"enable-if": "enable-auto-practice"
+		},
+		"toggle-practice-keybind": {
+			"name": "Enable Practice Toggle Key",
+			"description": "Press 'C' during a level to toggle practice mode on/off.",
+			"type": "bool",
+			"default": true
 		}
 	}
 }

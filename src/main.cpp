@@ -1,13 +1,19 @@
 #include <Geode/Geode.hpp>
 #include <Geode/modify/PlayLayer.hpp>
-#include <Geode/ui/GeodeUI.hpp>
+#include <Geode/modify/CCKeyboardDispatcher.hpp>
+#include <Geode/cocos/robtop/keyboard_dispatcher/CCKeyboardDispatcher.h>
 
 using namespace geode::prelude;
 
+// Auto Practice Mode Modifier
 class $modify(AutoPracticePlayLayer, PlayLayer) {
+    static inline AutoPracticePlayLayer* s_instance = nullptr;
+
     bool init(GJGameLevel* level, bool p1, bool p2) {
         if (!PlayLayer::init(level, p1, p2)) // Check if you are in a level
             return false;
+
+        s_instance = this; // Save instance to access later from keyboard hook
 
         if (Mod::get()->getSettingValue<bool>("enable-auto-practice")) {
             bool allowTestMode = Mod::get()->getSettingValue<bool>("enable-in-testmode");
@@ -23,17 +29,30 @@ class $modify(AutoPracticePlayLayer, PlayLayer) {
 
             if (shouldEnable) {
                 this->togglePracticeMode(true);
-                // Not sure who would even want a notification
-                if (Mod::get()->getSettingValue<bool>("show-notification")) {
-                    Notification::create(
-                        "Auto Practice Enabled",
-                        CCSprite::createWithSpriteFrameName("GJ_practiceBtn_001.png"), // Practice button icon
-                        0.7f
-                    )->show();
-                }
             }
         }
 
         return true;
+    }
+
+    static AutoPracticePlayLayer* getInstance() {
+        return s_instance;
+    }
+};
+
+// Keyboard Input Hook
+class $modify(KeyListenerDispatcher, CCKeyboardDispatcher) {
+    bool dispatchKeyboardMSG(enumKeyCodes key, bool down, bool repeat) {
+        if (down && key == enumKeyCodes::KEY_C) {
+            if (auto layer = PlayLayer::get()) { // Only toggle practice while in PlayLayer
+                bool currentlyPractice = layer->m_isPracticeMode;
+                layer->togglePracticeMode(!currentlyPractice);
+            }
+            else {
+                return false;
+            }
+        }
+
+        return CCKeyboardDispatcher::dispatchKeyboardMSG(key, down, repeat);
     }
 };
