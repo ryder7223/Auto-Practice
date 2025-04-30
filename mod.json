@@ -6,7 +6,7 @@
 		"mac": "2.2074",
 		"ios": "2.2074"
 	},
-	"version": "v1.1.3",
+	"version": "v1.1.4",
 	"id": "ryder7223.autopractice",
 	"name": "Auto Practice",
 	"developer": "Ryder7223",
@@ -40,7 +40,7 @@
 			"name": "Enable Practice Toggle Key",
 			"description": "Press 'C' during a level to toggle practice mode on/off.",
 			"type": "bool",
-			"default": true
+			"default": false
 		}
 	}
 }
