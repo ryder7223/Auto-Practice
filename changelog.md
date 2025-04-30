@@ -1,3 +1,7 @@
+# 1.1.4
+
+- Removed redundant code
+
 # 1.1.3
 
 - Added support for:
