@@ -1,7 +1,9 @@
 #include <Geode/Geode.hpp>
 #include <Geode/modify/PlayLayer.hpp>
+#ifndef GEODE_IS_IOS
 #include <Geode/modify/CCKeyboardDispatcher.hpp>
 #include <Geode/cocos/robtop/keyboard_dispatcher/CCKeyboardDispatcher.h>
+#endif
 
 using namespace geode::prelude;
 
@@ -40,7 +42,8 @@ class $modify(AutoPracticePlayLayer, PlayLayer) {
     }
 };
 
-// Keyboard Input Hook
+#ifndef GEODE_IS_IOS
+// Keyboard Input Hook (non-iOS only)
 class $modify(KeyListenerDispatcher, CCKeyboardDispatcher) {
     bool dispatchKeyboardMSG(enumKeyCodes key, bool down, bool repeat) {
         if (down && key == enumKeyCodes::KEY_C) {
@@ -56,3 +59,4 @@ class $modify(KeyListenerDispatcher, CCKeyboardDispatcher) {
         return CCKeyboardDispatcher::dispatchKeyboardMSG(key, down, repeat);
     }
 };
+#endif
