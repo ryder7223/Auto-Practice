@@ -8,14 +8,10 @@
 using namespace geode::prelude;
 
 // Auto Practice Mode Modifier
-class $modify(AutoPracticePlayLayer, PlayLayer) {
-    static inline AutoPracticePlayLayer* s_instance = nullptr;
-
+class $modify(PlayLayer) {
     bool init(GJGameLevel* level, bool p1, bool p2) {
         if (!PlayLayer::init(level, p1, p2)) // Check if you are in a level
             return false;
-
-        s_instance = this; // Save instance to access later from keyboard hook
 
         if (Mod::get()->getSettingValue<bool>("enable-auto-practice")) {
             bool allowTestMode = Mod::get()->getSettingValue<bool>("enable-in-testmode");
@@ -36,10 +32,6 @@ class $modify(AutoPracticePlayLayer, PlayLayer) {
 
         return true;
     }
-
-    static AutoPracticePlayLayer* getInstance() {
-        return s_instance;
-    }
 };
 
 #ifndef GEODE_IS_IOS
@@ -50,9 +42,6 @@ class $modify(KeyListenerDispatcher, CCKeyboardDispatcher) {
             if (auto layer = PlayLayer::get()) { // Only toggle practice while in PlayLayer
                 bool currentlyPractice = layer->m_isPracticeMode;
                 layer->togglePracticeMode(!currentlyPractice);
-            }
-            else {
-                return false;
             }
         }
 
