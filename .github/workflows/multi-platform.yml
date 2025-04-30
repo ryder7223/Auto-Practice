@@ -1,5 +1,4 @@
-- name: Initialize Geode
-  uses: entity12208/Geode-Initializer@v1.0.5
+name: Build Geode Mod
 
 on:
   workflow_dispatch:
