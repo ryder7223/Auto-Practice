@@ -6,7 +6,7 @@ This mod will automatically enable Practice Mode.
 - Enable Auto Practice
 - Enable in Test Mode
 - Enable in Platformer Mode
-- Toggle practice with "C"
+- Toggle practice with "C" (not on iOS)
 
 ## Known Issues
 - Don't spam "C" when in a level and while spamming another key, it is known to cause crashes occasionally.
