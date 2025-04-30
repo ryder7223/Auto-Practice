@@ -1,3 +1,7 @@
+# 1.1.5
+
+- Fixed bug where keybind feature ignored its setting
+
 # 1.1.4
 
 - Removed redundant code

@@ -38,10 +38,12 @@ class $modify(PlayLayer) {
 // Keyboard Input Hook (non-iOS only)
 class $modify(KeyListenerDispatcher, CCKeyboardDispatcher) {
     bool dispatchKeyboardMSG(enumKeyCodes key, bool down, bool repeat) {
-        if (down && key == enumKeyCodes::KEY_C) {
-            if (auto layer = PlayLayer::get()) { // Only toggle practice while in PlayLayer
-                bool currentlyPractice = layer->m_isPracticeMode;
-                layer->togglePracticeMode(!currentlyPractice);
+        if (Mod::get()->getSettingValue<bool>("toggle-practice-keybind")) {
+            if (down && key == enumKeyCodes::KEY_C) {
+                if (auto layer = PlayLayer::get()) {
+                    bool currentlyPractice = layer->m_isPracticeMode;
+                    layer->togglePracticeMode(!currentlyPractice);
+                }
             }
         }
 
