@@ -1,3 +1,10 @@
+# 1.1.3
+
+- Added support for:
+    + Android
+    + MacOS
+    + iOS
+
 # 1.1.2
 
 - Added ability to toggle practice with the key "C".
