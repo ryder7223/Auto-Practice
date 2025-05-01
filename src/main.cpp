@@ -1,25 +1,40 @@
 #include <Geode/Geode.hpp>
 #include <Geode/modify/PlayLayer.hpp>
 #ifndef GEODE_IS_IOS
-#include <Geode/modify/CCKeyboardDispatcher.hpp>
-#include <Geode/cocos/robtop/keyboard_dispatcher/CCKeyboardDispatcher.h>
+#include <Geode/loader/Setting.hpp>
+#include <geode.custom-keybinds/include/Keybinds.hpp>
+using namespace keybinds;
 #endif
 
 using namespace geode::prelude;
 
+#ifndef GEODE_IS_IOS
+// Register a custom keybind
+$execute {
+    BindManager::get()->registerBindable({
+        "ryder7223.autopractice/toggle-practice"_spr,
+        "Toggle Practice Mode",
+        "Toggles practice mode while in a level.",
+        { Keybind::create(KEY_C, Modifier::None) },
+        "PlayLayer"
+    });
+}
+#endif
+
 // Auto Practice Mode Modifier
 class $modify(PlayLayer) {
     bool init(GJGameLevel* level, bool p1, bool p2) {
-        if (!PlayLayer::init(level, p1, p2)) // Check if you are in a level
+        if (!PlayLayer::init(level, p1, p2))
             return false;
 
+        // Define mod setting values
         if (Mod::get()->getSettingValue<bool>("enable-auto-practice")) {
             bool allowTestMode = Mod::get()->getSettingValue<bool>("enable-in-testmode");
             bool allowPlatformerMode = Mod::get()->getSettingValue<bool>("enable-in-platformer");
 
-            bool shouldEnable = true; // Will remain true if unmodified
+            bool shouldEnable = true;
 
-            // Setting and play state checks
+            // Disables auto practice if any of these conditions are met
             if (m_isTestMode && !allowTestMode)
                 shouldEnable = false;
             if (m_level->isPlatformer() && !allowPlatformerMode)
@@ -30,24 +45,16 @@ class $modify(PlayLayer) {
             }
         }
 
+#ifndef GEODE_IS_IOS
+        // Add listener for custom keybind
+        this->template addEventListener<InvokeBindFilter>([=](InvokeBindEvent* event) {
+            if (event->isDown()) {
+                this->togglePracticeMode(!this->m_isPracticeMode);
+            }
+            return ListenerResult::Propagate;
+        }, "ryder7223.autopractice/toggle-practice"_spr);
+        
+#endif
         return true;
     }
 };
-
-#ifndef GEODE_IS_IOS
-// Keyboard Input Hook (non-iOS only)
-class $modify(KeyListenerDispatcher, CCKeyboardDispatcher) {
-    bool dispatchKeyboardMSG(enumKeyCodes key, bool down, bool repeat) {
-        if (Mod::get()->getSettingValue<bool>("toggle-practice-keybind")) {
-            if (down && key == enumKeyCodes::KEY_C) {
-                if (auto layer = PlayLayer::get()) {
-                    bool currentlyPractice = layer->m_isPracticeMode;
-                    layer->togglePracticeMode(!currentlyPractice);
-                }
-            }
-        }
-
-        return CCKeyboardDispatcher::dispatchKeyboardMSG(key, down, repeat);
-    }
-};
-#endif
