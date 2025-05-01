@@ -8,9 +8,9 @@ This mod will automatically enable Practice Mode.
 - Enable in Platformer Mode
 - Toggle practice with a keybind (not on iOS)
     + You can edit keybinds in the settings of the custom keybinds mod.
-
-## Known Issues
-- Don't spam "C" when in a level and while spamming another key, it is known to cause crashes occasionally.
+ 
+## Bug Reports
+If you have any issues or would like a specific feature, please create an issue on this mod's github page.
 
 ## Credit
 - <cb>Alphalaneous</c> for helping with my dumb coding mistakes.
