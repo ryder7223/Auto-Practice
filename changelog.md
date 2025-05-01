@@ -1,3 +1,7 @@
+# 1.1.7
+
+- Added Android keybind support.
+
 # 1.1.6
 
 - Added custom keybind support.
