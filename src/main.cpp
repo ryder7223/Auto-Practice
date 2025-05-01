@@ -52,7 +52,7 @@ class $modify(PlayLayer) {
 #ifndef GEODE_IS_ANDROID
 #ifndef GEODE_IS_IOS
         // Add listener for custom keybind
-        this->template addEventListener<InvokeBindFilter>([=](InvokeBindEvent* event) {
+        this->template addEventListener<InvokeBindFilter>([this](InvokeBindEvent* event) {
             if (event->isDown()) {
                 this->togglePracticeMode(!this->m_isPracticeMode);
             }
