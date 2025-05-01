@@ -6,7 +6,7 @@
 		"mac": "2.2074",
 		"ios": "2.2074"
 	},
-	"version": "v1.1.6",
+	"version": "v1.1.7",
 	"id": "ryder7223.autopractice",
 	"name": "Auto Practice",
 	"developer": "Ryder7223",
@@ -19,7 +19,7 @@
 		"geode.custom-keybinds": {
 			"version": "v1.10.3",
 			"importance": "required",
-			"platforms": ["win", "macos", "android"]
+			"platforms": ["win", "mac", "android"]
 		}
 	},
 	"settings": {
