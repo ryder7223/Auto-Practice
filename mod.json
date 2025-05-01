@@ -6,7 +6,7 @@
 		"mac": "2.2074",
 		"ios": "2.2074"
 	},
-	"version": "v1.1.5",
+	"version": "v1.1.6",
 	"id": "ryder7223.autopractice",
 	"name": "Auto Practice",
 	"developer": "Ryder7223",
@@ -15,6 +15,13 @@
 		"source": "https://github.com/ryder7223/Auto-Practice"
 	},
 	"tags": ["utility"],
+	"dependencies": {
+		"geode.custom-keybinds": {
+			"version": "v1.10.3",
+			"importance": "required",
+			"platforms": ["win", "macos", "android"]
+		}
+	},
 	"settings": {
 		"enable-auto-practice": {
 			"name": "Enable Auto Practice",
@@ -35,12 +42,6 @@
 			"type": "bool",
 			"default": false,
 			"enable-if": "enable-auto-practice"
-		},
-		"toggle-practice-keybind": {
-			"name": "Enable Practice Toggle Key",
-			"description": "Press 'C' during a level to toggle practice mode on/off.",
-			"type": "bool",
-			"default": false
 		}
 	}
 }
