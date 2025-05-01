@@ -9,7 +9,7 @@ using namespace keybinds;
 using namespace geode::prelude;
 
 #ifndef GEODE_IS_IOS
-// Register the custom keybind when the mod loads
+// Register a custom keybind
 $execute {
     BindManager::get()->registerBindable({
         "ryder7223.autopractice/toggle-practice"_spr,
@@ -27,12 +27,14 @@ class $modify(PlayLayer) {
         if (!PlayLayer::init(level, p1, p2))
             return false;
 
+        // Define mod setting values
         if (Mod::get()->getSettingValue<bool>("enable-auto-practice")) {
             bool allowTestMode = Mod::get()->getSettingValue<bool>("enable-in-testmode");
             bool allowPlatformerMode = Mod::get()->getSettingValue<bool>("enable-in-platformer");
 
             bool shouldEnable = true;
 
+            // Disables auto practice if any of these conditions are met
             if (m_isTestMode && !allowTestMode)
                 shouldEnable = false;
             if (m_level->isPlatformer() && !allowPlatformerMode)
