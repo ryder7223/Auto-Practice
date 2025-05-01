@@ -6,7 +6,7 @@ This mod will automatically enable Practice Mode.
 - Enable Auto Practice
 - Enable in Test Mode
 - Enable in Platformer Mode
-- Toggle practice with a keybind (not on iOS)
+- Toggle practice with a keybind (not on mobile)
     + You can edit keybinds in the settings of the custom keybinds mod.
  
 ## Bug Reports
