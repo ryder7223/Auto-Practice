@@ -1,13 +1,16 @@
 #include <Geode/Geode.hpp>
 #include <Geode/modify/PlayLayer.hpp>
+#ifndef GEODE_IS_ANDROID
 #ifndef GEODE_IS_IOS
 #include <Geode/loader/Setting.hpp>
 #include <geode.custom-keybinds/include/Keybinds.hpp>
 using namespace keybinds;
 #endif
+#endif
 
 using namespace geode::prelude;
 
+#ifndef GEODE_IS_ANDROID
 #ifndef GEODE_IS_IOS
 // Register a custom keybind
 $execute {
@@ -19,6 +22,7 @@ $execute {
         "PlayLayer"
     });
 }
+#endif
 #endif
 
 // Auto Practice Mode Modifier
@@ -44,7 +48,8 @@ class $modify(PlayLayer) {
                 this->togglePracticeMode(true);
             }
         }
-
+        
+#ifndef GEODE_IS_ANDROID
 #ifndef GEODE_IS_IOS
         // Add listener for custom keybind
         this->template addEventListener<InvokeBindFilter>([=](InvokeBindEvent* event) {
@@ -54,6 +59,7 @@ class $modify(PlayLayer) {
             return ListenerResult::Propagate;
         }, "ryder7223.autopractice/toggle-practice"_spr);
         
+#endif
 #endif
         return true;
     }
