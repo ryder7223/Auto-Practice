@@ -23,25 +23,23 @@
 		}
 	},
 	"settings": {
-		"enable-auto-practice": {
-			"name": "Enable Auto Practice",
-			"description": "Toggles auto-practice when starting a level.",
+		"enable-in-normal": {
+			"name": "Enable in Normal Mode",
+			"description": "Enables practice mode when starting a level in normal mode.",
 			"type": "bool",
 			"default": true
 		},
 		"enable-in-testmode": {
 			"name": "Enable in Test Mode",
-			"description": "Auto practice will activate when starting a level in test mode.",
+			"description": "Enables practice mode when starting a level in test mode.",
 			"type": "bool",
-			"default": false,
-			"enable-if": "enable-auto-practice"
+			"default": false
 		},
 		"enable-in-platformer": {
 			"name": "Enable in Platformer Mode",
-			"description": "Auto practice will activate when starting a level in platformer mode.",
+			"description": "Enables practice mode when starting a level in platformer mode.",
 			"type": "bool",
-			"default": false,
-			"enable-if": "enable-auto-practice"
+			"default": false
 		}
 	}
 }
