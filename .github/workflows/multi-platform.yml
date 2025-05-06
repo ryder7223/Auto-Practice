@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - "1.1.8"
+      - "main"
 
 jobs:
   build:
