@@ -9,7 +9,7 @@ using namespace keybinds;
 using namespace geode::prelude;
 
 #ifndef GEODE_IS_IOS
-// Register a custom keybind
+// Fancy keybind
 $execute {
     BindManager::get()->registerBindable({
         "ryder7223.autopractice/toggle-practice"_spr,
@@ -21,34 +21,37 @@ $execute {
 }
 #endif
 
-// Auto Practice Mode Modifier
+// Auto Practice Modifier
 class $modify(PlayLayer) {
+    // Hooks a function probably
     bool init(GJGameLevel* level, bool p1, bool p2) {
+        // If you aren't in a level it won't crash your game
         if (!PlayLayer::init(level, p1, p2))
             return false;
 
-        // Define mod setting values
-        if (Mod::get()->getSettingValue<bool>("enable-auto-practice")) {
-            bool allowTestMode = Mod::get()->getSettingValue<bool>("enable-in-testmode");
-            bool allowPlatformerMode = Mod::get()->getSettingValue<bool>("enable-in-platformer");
+        bool allowNormalMode = Mod::get()->getSettingValue<bool>("enable-in-normal");
+        bool allowTestMode = Mod::get()->getSettingValue<bool>("enable-in-testmode");
+        bool allowPlatformerMode = Mod::get()->getSettingValue<bool>("enable-in-platformer");
+        bool shouldEnable = true;
 
-            bool shouldEnable = true;
-
-            // Disables auto practice if any of these conditions are met
-            if (m_isTestMode && !allowTestMode)
-                shouldEnable = false;
-            if (m_level->isPlatformer() && !allowPlatformerMode)
-                shouldEnable = false;
-
-            if (shouldEnable) {
-                this->togglePracticeMode(true);
-            }
+        // Disables auto practice if any of these conditions are met
+        // This one checks if you're in normal mode
+        if (!this->m_isPracticeMode && !allowNormalMode)
+            shouldEnable = false;
+        if (m_isTestMode && !allowTestMode)
+            shouldEnable = false;
+        if (m_level->isPlatformer() && !allowPlatformerMode)
+            shouldEnable = false;
+        if (shouldEnable) {
+            // Does this thing if none of the other things are things
+            this->togglePracticeMode(true);
         }
-        
-#ifndef GEODE_IS_IOS
-        // Add listener for custom keybind
+
+        #ifndef GEODE_IS_IOS
+        // Listener for custom keybind
         this->template addEventListener<InvokeBindFilter>([this](InvokeBindEvent* event) {
             if (event->isDown()) {
+                // Another normal mode check!!!111
                 this->togglePracticeMode(!this->m_isPracticeMode);
             }
             return ListenerResult::Propagate;
