@@ -1,3 +1,7 @@
+# 1.1.8
+
+- Changed `Enable Auto Practice` setting to `Enable in Normal Mode` to allow for more customisation.
+
 # 1.1.7
 
 - Added Android keybind support.
