@@ -35,15 +35,11 @@ class $modify(PlayLayer) {
         bool shouldEnable = true;
 
         // Disables auto practice if any of these conditions are met
-        // This one checks if you're in normal mode
-        if (!this->m_isPracticeMode && !allowNormalMode)
-            shouldEnable = false;
-        if (m_isTestMode && !allowTestMode)
-            shouldEnable = false;
-        if (m_level->isPlatformer() && !allowPlatformerMode)
-            shouldEnable = false;
-        if (shouldEnable) {
-            // Does this thing if none of the other things are things
+        if (!this->m_isPracticeMode && !m_isTestMode && !m_level->isPlatformer() && allowNormalMode) {
+            this->togglePracticeMode(true);
+        } else if (m_isTestMode && allowTestMode) {
+            this->togglePracticeMode(true);
+        } else if (m_level->isPlatformer() && allowPlatformerMode) {
             this->togglePracticeMode(true);
         }
 
