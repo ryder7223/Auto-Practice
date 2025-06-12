@@ -3,7 +3,7 @@
 This mod will automatically enable Practice Mode.
 
 ## Settings
-- Enable Auto Practice
+- Enable in Normal Mode
 - Enable in Test Mode
 - Enable in Platformer Mode
 - Toggle practice with a keybind (not on iOS)
