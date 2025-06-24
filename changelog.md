@@ -1,3 +1,8 @@
+# 1.1.9
+
+- Updated to Geode 4.6.1.
+- Fixed error in mod description.
+
 # 1.1.8
 
 - Changed `Enable Auto Practice` setting to `Enable in Normal Mode` to allow for more customisation.
