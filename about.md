@@ -1,6 +1,6 @@
 # Auto Practice
 
-This mod will automatically enable Practice Mode.
+This mod adds keybind functionality for toggling practice mode, and also adds auto-enable practice as an option.
 
 ## Settings
 - Enable in Normal Mode
