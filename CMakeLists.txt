@@ -8,7 +8,7 @@ else()
 endif()
 set(CMAKE_CXX_VISIBILITY_PRESET hidden)
 
-project(TestMod VERSION 1.0.0)
+project(AutoPractice VERSION 1.2.0)
 
 # Set up the mod binary
 add_library(${PROJECT_NAME} SHARED
@@ -26,3 +26,4 @@ add_subdirectory($ENV{GEODE_SDK} ${CMAKE_CURRENT_BINARY_DIR}/geode)
 
 # Set up dependencies, resources, and link Geode.
 setup_geode_mod(${PROJECT_NAME})
+
