@@ -1,25 +1,7 @@
 #include <Geode/Geode.hpp>
 #include <Geode/modify/PlayLayer.hpp>
-#ifndef GEODE_IS_IOS
-#include <Geode/loader/Setting.hpp>
-#include <geode.custom-keybinds/include/Keybinds.hpp>
-using namespace keybinds;
-#endif
 
 using namespace geode::prelude;
-
-#ifndef GEODE_IS_IOS
-// Fancy keybind
-$execute {
-    BindManager::get()->registerBindable({
-        "ryder7223.autopractice/toggle-practice"_spr,
-        "Toggle Practice Mode",
-        "Toggles practice mode while in a level.",
-        { Keybind::create(KEY_C, Modifier::None) },
-        "PlayLayer"
-    });
-}
-#endif
 
 // Auto Practice Modifier
 class $modify(PlayLayer) {
@@ -43,17 +25,16 @@ class $modify(PlayLayer) {
             this->togglePracticeMode(true);
         }
 
-        #ifndef GEODE_IS_IOS
-        // Listener for custom keybind
-        this->template addEventListener<InvokeBindFilter>([this](InvokeBindEvent* event) {
-            if (event->isDown()) {
-                // Another normal mode check!!!111
-                this->togglePracticeMode(!this->m_isPracticeMode);
+        // Listener for keybind setting
+        listenForKeybindSettingPresses("toggle-practice",
+            [this](const Keybind& keybind, bool down, bool repeat, double timestamp) {
+                if (down && !repeat) {
+                    // Another normal mode check!!!111
+                    this->togglePracticeMode(!this->m_isPracticeMode);
+                }
             }
-            return ListenerResult::Propagate;
-        }, "ryder7223.autopractice/toggle-practice"_spr);
+        );
         
-#endif
         return true;
     }
 };
