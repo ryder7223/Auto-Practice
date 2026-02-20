@@ -1,3 +1,8 @@
+# 1.2.0
+
+- Removed Custom Keybinds dependancy.
+- Changed default keybind to `Shift+C`.
+
 # 1.1.9
 
 - Updated to Geode 4.6.1.
@@ -39,3 +44,5 @@
 # 1.1.1
 
 - Initial Release.
+
+

@@ -1,12 +1,12 @@
 {
-	"geode": "4.6.1",
+	"geode": "5.0.0-beta.3",
 	"gd": {
-		"win": "2.2074",
-		"android": "2.2074",
-		"mac": "2.2074",
-		"ios": "2.2074"
+		"win": "2.2081",
+		"android": "2.2081",
+		"mac": "2.2081",
+		"ios": "2.2081"
 	},
-	"version": "v1.1.9",
+	"version": "v1.2.0",
 	"id": "ryder7223.autopractice",
 	"name": "Auto Practice",
 	"developer": "Ryder7223",
@@ -15,19 +15,24 @@
 		"source": "https://github.com/ryder7223/Auto-Practice"
 	},
 	"tags": ["utility"],
-	"dependencies": {
-		"geode.custom-keybinds": {
-			"version": "v1.10.3",
-			"importance": "required",
-			"platforms": ["win", "mac", "android"]
-		}
-	},
 	"settings": {
+		"toggle-practice": {
+		"name": "Toggle Practice Mode",
+		"description": "Toggles practice mode while in a level.",
+		"category": "gameplay",
+		"type": "keybind",
+		"default": {
+			"win": "Shift+C",
+			"android": "Shift+C",
+			"mac": "Shift+C",
+			"ios": "Shift+C"
+			}
+		},
 		"enable-in-normal": {
 			"name": "Enable in Normal Mode",
 			"description": "Enables practice mode when starting a level in normal mode.",
 			"type": "bool",
-			"default": true
+			"default": false
 		},
 		"enable-in-testmode": {
 			"name": "Enable in Test Mode",
