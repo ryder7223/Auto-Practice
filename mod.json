@@ -16,6 +16,17 @@
 	},
 	"tags": ["utility"],
 	"settings": {
+		"toggle-practice": {
+		"name": "Toggle Practice Mode",
+		"description": "Toggles practice mode while in a level.",
+		"category": "gameplay",
+		"type": "keybind",
+		"default": {
+			"win": "Shift+C",
+			"android": "Shift+C",
+			"mac": "Shift+C",
+			"ios": "Shift+C"
+		},
 		"enable-in-normal": {
 			"name": "Enable in Normal Mode",
 			"description": "Enables practice mode when starting a level in normal mode.",
@@ -33,18 +44,8 @@
 			"description": "Enables practice mode when starting a level in platformer mode.",
 			"type": "bool",
 			"default": false
-		},
-		"toggle-practice": {
-			"name": "Toggle Practice Mode",
-			"description": "Toggles practice mode while in a level.",
-			"category": "universal",
-			"type": "keybind",
-			"default": {
-				"win": "Shift+C",
-				"android": "Shift+C",
-				"mac": "Shift+C",
-				"ios": "Shift+C"
-			}
+		}
 		}
 	}
 }
+
