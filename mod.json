@@ -15,13 +15,6 @@
 		"source": "https://github.com/ryder7223/Auto-Practice"
 	},
 	"tags": ["utility"],
-	"dependencies": {
-		"geode.custom-keybinds": {
-			"version": ">=v1.10.3",
-			"importance": "required",
-			"platforms": ["win", "mac", "android"]
-		}
-	},
 	"settings": {
 		"enable-in-normal": {
 			"name": "Enable in Normal Mode",
@@ -40,9 +33,18 @@
 			"description": "Enables practice mode when starting a level in platformer mode.",
 			"type": "bool",
 			"default": false
+		},
+		"toggle-practice": {
+			"name": "Toggle Practice Mode",
+			"description": "Toggles practice mode while in a level.",
+			"category": "universal",
+			"type": "keybind",
+			"default": {
+				"win": "Shift+C",
+				"android": "Shift+C",
+				"mac": "Shift+C",
+				"ios": "Shift+C"
+			}
 		}
 	}
 }
-
-
-
