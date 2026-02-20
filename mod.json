@@ -26,6 +26,7 @@
 			"android": "Shift+C",
 			"mac": "Shift+C",
 			"ios": "Shift+C"
+			}
 		},
 		"enable-in-normal": {
 			"name": "Enable in Normal Mode",
@@ -45,7 +46,5 @@
 			"type": "bool",
 			"default": false
 		}
-		}
 	}
 }
-
