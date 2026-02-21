@@ -46,7 +46,8 @@ class $modify(PlayLayer) {
 
     void onExit() {
         // Cancel listener before layer is destroyed
-        m_fields->keybindListener.cancel();
+        m_fields->keybindListener.destroy();
         PlayLayer::onExit();
     }
 };
+
