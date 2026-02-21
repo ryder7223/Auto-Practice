@@ -5,6 +5,11 @@ using namespace geode::prelude;
 
 // Auto Practice Modifier
 class $modify(PlayLayer) {
+
+    struct Fields {
+        ListenerHandle keybindListener;
+    };
+
     // Hooks a function probably
     bool init(GJGameLevel* level, bool p1, bool p2) {
         // If you aren't in a level it won't crash your game
@@ -26,15 +31,22 @@ class $modify(PlayLayer) {
         }
 
         // Listener for keybind setting
-        listenForKeybindSettingPresses("toggle-practice",
-            [this](const Keybind& keybind, bool down, bool repeat, double timestamp) {
-                if (down && !repeat) {
-                    // Another normal mode check!!!111
-                    this->togglePracticeMode(!this->m_isPracticeMode);
+        m_fields->keybindListener =
+            listenForKeybindSettingPresses("toggle-practice",
+                [this](const Keybind& keybind, bool down, bool repeat, double timestamp) {
+                    if (down && !repeat) {
+                        // Another normal mode check!!!111
+                        this->togglePracticeMode(!this->m_isPracticeMode);
+                    }
                 }
-            }
-        );
-        
+            );
+
         return true;
+    }
+
+    void onExit() {
+        // Cancel listener before layer is destroyed
+        m_fields->keybindListener.cancel();
+        PlayLayer::onExit();
     }
 };
