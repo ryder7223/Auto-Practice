@@ -24,12 +24,12 @@ class $modify(PlayLayer) {
             this->togglePracticeMode(true);
         }
 
-        // Event listener style for keybinds inside PlayLayer
+        // Event listener for keybinds inside PlayLayer
         this->addEventListener(
             KeybindSettingPressedEventV3(Mod::get(), "toggle-practice"),
             [this](const Keybind& keybind, bool down, bool repeat, double timestamp) {
                 if (down && !repeat) {
-                    // Toggle practice mode when key pressed
+                    // Toggle practice mode when a key is pressed
                     this->togglePracticeMode(!this->m_isPracticeMode);
                 }
             }
