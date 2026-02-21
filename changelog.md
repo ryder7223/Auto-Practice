@@ -1,3 +1,7 @@
+# 1.2.1
+
+- Fixed a crash caused by typing using the chosen keybind.
+
 # 1.2.0
 
 - Removed Custom Keybinds dependancy.
@@ -44,5 +48,6 @@
 # 1.1.1
 
 - Initial Release.
+
 
 
