@@ -6,11 +6,11 @@
 		"mac": "2.2081",
 		"ios": "2.2081"
 	},
-	"version": "v1.2.0",
+	"version": "v1.2.1",
 	"id": "ryder7223.autopractice",
 	"name": "Auto Practice",
 	"developer": "Ryder7223",
-	"description": "Enables practice mode when entering a level.",
+	"description": "Enables practice mode with a keybind or when entering a level.",
 	"links": {
 		"source": "https://github.com/ryder7223/Auto-Practice"
 	},
@@ -48,3 +48,4 @@
 		}
 	}
 }
+
