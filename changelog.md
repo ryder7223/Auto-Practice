@@ -1,3 +1,7 @@
+# 1.2.2
+
+- Improved README and description.
+
 # 1.2.1
 
 - Fixed a crash caused by typing using the chosen keybind.
@@ -48,6 +52,3 @@
 # 1.1.1
 
 - Initial Release.
-
-
-
