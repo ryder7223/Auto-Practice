@@ -12,4 +12,4 @@ This mod adds keybind functionality for toggling practice mode, and also adds au
 If you have any issues or would like a specific feature, please create an issue on this mod's github page.
 
 ## Credit
-- <cb>Alphalaneous</c> for helping with my dumb coding mistakes.
+- Alphalaneous for helping with my dumb coding mistakes.
