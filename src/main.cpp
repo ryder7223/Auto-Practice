@@ -1,5 +1,6 @@
 #include <Geode/Geode.hpp>
 #include <Geode/modify/PlayLayer.hpp>
+#include <Geode/modify/MoreOptionsLayer.hpp>
 
 using namespace geode::prelude;
 
@@ -28,8 +29,9 @@ class $modify(PlayLayer) {
         this->addEventListener(
             KeybindSettingPressedEventV3(Mod::get(), "toggle-practice"),
             [this](const Keybind& keybind, bool down, bool repeat, double timestamp) {
-                if (down && !repeat) {
+                if (down && !repeat && !this->m_endChecked) {
                     // Toggle practice mode when a key is pressed
+                    // Only when the end hasn't been triggered
                     this->togglePracticeMode(!this->m_isPracticeMode);
                 }
             }
