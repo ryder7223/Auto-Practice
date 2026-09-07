@@ -1,3 +1,7 @@
+# 1.2.3
+
+- Fixed an issue that allowed people to disable practice mode after the end was triggered which let people illegitimately complete them.
+
 # 1.2.2
 
 - Improved README and description.
