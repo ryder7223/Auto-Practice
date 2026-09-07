@@ -1,3 +1,8 @@
+# 1.2.3
+
+- Fixed an issue that allowed people to disable practice mode after the end was triggered which let people illegitimately complete them.
+- Updated to Geode 5.10.1.
+
 # 1.2.2
 
 - Improved README and description.
@@ -15,6 +20,7 @@
 
 - Updated to Geode 4.6.1.
 - Fixed error in mod description.
+
 
 # 1.1.8
 
